@@ -1,4 +1,7 @@
 const db = require("../models");
+const axios = require("axios");
+const cheerio = require("cheerio");
+
 
 module.exports = function(app) {
     // app.get("/scrape", function (req, res) {
@@ -11,7 +14,7 @@ module.exports = function(app) {
 
 
     // A GET route for scraping the website
-    app.get("/scrape", function (req, res) {
+    app.get("/scrapetest", function (req, res) {
         axios.get("https://www.buzzfeednews.com/").then(function (response) {
             // Then, we load that into cheerio and save it to $ for a shorthand selector
             const $ = cheerio.load(response.data);
@@ -24,14 +27,26 @@ module.exports = function(app) {
                 // Add the text and href of every link, and save them as properties of the result object
                 result.title = $(this)
                     .children("a")
-                    .text();
+                    .children(".newsblock-story-card__info") 
+                    .children("h2")
+                    .text().trim();
                 result.img = $(this)
                     .children("a")
                     .children(".img-wireframe")
                     .children(".img-wireframe__image-container")
                     .children("img")
                     .attr("src");
+                result.description = $(this)
+                    .children("a")
+                    .children(".newsblock-story-card__info")
+                    .children("p") 
+                    .text();
+                result.link = $(this)
+                    .children("a")
+                    .attr("href")
 
+
+                 console.log(result)
                 // Create a new Article using the `result` object built from scraping
                 db.Article.create(result)
                     .then(function (dbArticle) {
