@@ -11,8 +11,6 @@ module.exports = function(app) {
     // });
 
 
-
-
     // A GET route for scraping the website
     app.get("/scrapeit", function (req, res) {
         axios.get("https://www.buzzfeednews.com/").then(function (response) {
@@ -45,8 +43,6 @@ module.exports = function(app) {
                     .children("a")
                     .attr("href")
 
-
-                 console.log(result)
                 // Create a new Article using the `result` object built from scraping
                 db.Article.create(result)
                     .then(function (dbArticle) {
@@ -68,8 +64,12 @@ module.exports = function(app) {
         // Grab every document in the Articles collection
         db.Article.find({})
             .then(function (dbArticle) {
-                // If we were able to successfully find Articles, send them back to the client
-                res.json(dbArticle);
+
+                let allArticles = {
+                    articles: dbArticle
+                }
+
+                res.render("index", allArticles);
             })
             .catch(function (err) {
                 // If an error occurred, send it to the client

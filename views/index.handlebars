@@ -6,10 +6,8 @@
 
 <div>
   <ul class="article-list">
-    {{#each article}}
-      {{!-- {{#unless sleepy}} --}}
-        {{!-- {{> cats/cat-block sleep=true}} --}}
-      {{!-- {{/unless}} --}}
+    {{#each articles}}
+      <li>{{this.title}}</li>
     {{/each}}
   </ul>
 </div>
