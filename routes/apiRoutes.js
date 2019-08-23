@@ -54,7 +54,6 @@ module.exports = function(app) {
                         console.log(dbArticle);
                     })
                     .catch(function (err) {
-                        // If an error occurred, log it
                         console.log(err);
                     });
             });
