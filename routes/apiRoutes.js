@@ -46,7 +46,6 @@ module.exports = function(app) {
                 // Create a new Article using the `result` object built from scraping
                 db.Article.create(result)
                     .then(function (dbArticle) {
-                        // View the added result in the console
                         console.log(dbArticle);
                     })
                     .catch(function (err) {
@@ -54,15 +53,14 @@ module.exports = function(app) {
                     });
             });
 
-            // Send a message to the client
-            res.send("Scrape Complete");
+            // res.send("Scrape Complete");
+            console.log("Scrape Complete")
         });
     });
 
     // Route for getting all Articles from the db
     app.get("/articles", function (req, res) {
-        // Grab every document in the Articles collection
-        db.Article.find({})
+        db.Article.find({}).limit(10)
             .then(function (dbArticle) {
 
                 let allArticles = {
@@ -85,7 +83,7 @@ module.exports = function(app) {
             .populate("note")
             .then(function (dbArticle) {
                 // If we were able to successfully find an Article with the given id, send it back to the client
-                res.json(dbArticle);
+                res.render("index", dbArticle);
             })
             .catch(function (err) {
                 // If an error occurred, send it to the client

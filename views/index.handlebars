@@ -5,36 +5,37 @@
 <h2>which were scraped</h2>
 
 <div>
-  <ul class="article-list">
+  <div class="article-list">
     {{#each articles}}
-      <li>{{this.title}}</li>
+
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src={{this.img}} alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{this.title}}</h5>
+        <p class="card-text">{{this.descriotion}}</p>
+        <a href={{this.link}} class="btn btn-primary">Go to source</a>
+      </div>
+    </div>
+
     {{/each}}
-  </ul>
+  </div>
 </div>
 
-{{!-- <h2>Cats that are sleepy!</h2>
 
-<ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
-    {{/if}}
+
+
+
+<div>
+  <ul>
+  {{#each notes}}
+    <li>
+      <div>
+        {{this.title}}
+      </div>
+      <div>
+        {{this.body}}
+      </div>
+    </li>
   {{/each}}
-</ul>
-
-<h2>Add a Cat</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Cat Name:</label>
-    <input type="text" id="ca" name="name">
-  </div>
-
-  <div class="form-group">
-    <label for="sleepy">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
-  </div>
-
-  <button type="submit">Add Cat</button>
-</form> --}}
+  </ul>
+</div>
