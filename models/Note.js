@@ -1,6 +1,6 @@
 // Notes model
 
-let mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
 // Save a reference to the Schema constructor
 let Schema = mongoose.Schema;

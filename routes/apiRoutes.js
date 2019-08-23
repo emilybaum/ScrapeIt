@@ -14,7 +14,7 @@ module.exports = function(app) {
 
 
     // A GET route for scraping the website
-    app.get("/scrapetest", function (req, res) {
+    app.get("/scrapeit", function (req, res) {
         axios.get("https://www.buzzfeednews.com/").then(function (response) {
             // Then, we load that into cheerio and save it to $ for a shorthand selector
             const $ = cheerio.load(response.data);

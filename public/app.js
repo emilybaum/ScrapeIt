@@ -1,6 +1,18 @@
 // add the document selectors and logic for display on DOM
 $(document).ready(function() {
+    const $scrapeIt = $("#scrapeIt");
 
-    console.log("hello - app.js is connected")
+    function handleScrape() {
+        return $.ajax({
+            type: "GET",
+            url: "/scrapeit",
+        });
+    }
+
+    function write() {
+        // 
+    }
+
+    $scrapeIt.on("click", handleScrape);
 
 }) // end document.ready
