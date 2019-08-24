@@ -37,10 +37,12 @@ $(document).ready(function() {
             let dbNote = data.note // this is an array
             // data.note._id -- this needs to pass to the individual element
             let articleId = data._id // this is the article id
-            console.log(articleId)
+            // console.log(articleId)
 
             noteBody.attr("article-id", articleId)
             noteBody.write(dbNote)
+
+            $("#savedNotesModal").modal('hide')
 
         })
     }
@@ -56,7 +58,7 @@ $(document).ready(function() {
 
     function getNoteInput() {
         let id = $(this).attr("data-id")
-        let input = $("#exampleFormControlTextarea1").val();
+        let input = $("#userTextInput").val();
         return $.ajax({
             type: "POST",
             url: "/notes/" + id,
@@ -67,7 +69,9 @@ $(document).ready(function() {
             
         }).then(function (data) {
             console.log(data)
-            console.log("adding note")
+            console.log("note added")
+            $("#userTextInput").val("");
+            $("#newNotesModal").modal('hide')
         })
     }
 
