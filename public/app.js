@@ -6,11 +6,9 @@ $(document).ready(function() {
         return $.ajax({
             type: "GET",
             url: "/scrapeit",
-        });
-    }
-
-    function write() {
-        // 
+        }).then(function(data) {
+            console.log(data)
+        })
     }
 
     $scrapeIt.on("click", handleScrape);

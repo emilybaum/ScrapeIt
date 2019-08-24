@@ -1,3 +1,11 @@
+h3 {
+    font-size: 14px;
+}
+
+.eb-description {
+    font-size: 12px;
+}
+
 .jumbotron {
   padding-top: 3rem;
   padding-bottom: 3rem;

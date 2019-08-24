@@ -12,6 +12,8 @@
 <div class="album py-5 bg-light">
     <div class="container">
 
+        {{#each notes}}
+        {{!-- #IF only show if there is a note present --}}
         <div class="row">
 
             <div class="card">
@@ -19,15 +21,15 @@
                     Note
                 </div>
                 <div class="card-body">
-                    <blockquote class="blockquote mb-0">
-                        <p>{{this.body}}</p>
-                        <footer class="blockquote-footer">original article: <a href={{this.link}} target="_blank"><cite title="Source Title">{{this.title}}</cite></a></footer>
-                    </blockquote>
+                    <div class=" mb-0">
+                        <p>{{this.note.body}}</p>
+                        <footer class="">Source: <a href={{this.link}} target="_blank"><cite title="Source Title">{{this.title}}</cite></a></footer>
+                    </div>
                 </div>
-            </div>
-
-
+            </div>  
         </div>
+        {{!-- /IF only show if there is a note present --}}
+        {{/each}}
 
     </div>
 </div>>
