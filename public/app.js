@@ -43,19 +43,21 @@ $(document).ready(function() {
 
     function newNoteModal() {
         let id = $(this).attr("article-id")
+        $("#saveNewNote").on("click", getNoteInput(id))
         
+    }
+
+    function getNoteInput(id) {
+        let input = $("#exampleFormControlTextarea1").value().trim()
         return $.ajax({
             type: "POST",
             url: "/notes/" + id,
-            id: id
+            id: id,
+            input: input
         }).then(function (data) {
             console.log(data)
-
+            alert("your note has been added")
         })
-    }
-
-    function getNoteInput() {
-
     }
 
 

@@ -32,7 +32,7 @@
                 <button type="button" class="ml-1 btn btn-sm btn-outline-secondary openNotes" article-id="{{this._id}}" data-toggle="modal" data-target="#savedNotesModal">
                   See notes
                 </button>
-                <button type="button" class="ml-1 btn btn-sm btn-outline-secondary" article-id="{{this._id}}"
+                <button type="button" class="ml-1 btn btn-sm btn-outline-secondary newNotes" article-id="{{this._id}}"
                   data-toggle="modal" data-target="#newNotesModal">
                   Add note
                 </button>
@@ -94,11 +94,11 @@
               <label for="exampleFormControlTextarea1">Example textarea</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
-            
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" id="saveNewNote" class="btn btn-primary">Save changes</button>
+            <button type="button" id="saveNewNote" article-id="" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
