@@ -1,0 +1,33 @@
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">ScrapeIt</h1>
+        <p class="lead text-muted">These are the notes that have been added to the differnet articles</p>
+        <p>
+            <a href="articles" class="btn btn-primary my-2">Back to articles</a>
+            <a href="notes" class="btn btn-secondary my-2"><button class="disabled">See notes</button></a>
+        </p>
+    </div>
+</section>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="card">
+                <div class="card-header">
+                    Note
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p>{{this.body}}</p>
+                        <footer class="blockquote-footer">original article: <a href={{this.link}} target="_blank"><cite title="Source Title">{{this.title}}</cite></a></footer>
+                    </blockquote>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>>
