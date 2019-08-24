@@ -8,7 +8,7 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-var PORT = 3030;
+var PORT = process.env.PORT || 3030;
 
 // Initialize Express
 var app = express();
@@ -30,12 +30,12 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Connect to the Mongo DB --- OLD
-mongoose.connect("mongodb://localhost/mongoHeadlines", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/mongoHeadlines", { useNewUrlParser: true });
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-// mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);

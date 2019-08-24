@@ -1,8 +1,14 @@
 // add the document selectors and logic for display on DOM
 $(document).ready(function() {
     const $scrapeIt = $("#scrapeIt");
-    const $openSavedNotes = $(".openNotes")
-    const $openNewNotes = $(".newNotes")
+    const $openSavedNotes = $(".openNotes");
+    const $openNewNotes = $(".newNotes");
+    const $SaveNote = $("#saveNewNote");
+
+    $scrapeIt.on("click", handleScrape);
+    $openSavedNotes.on("click", openNoteModal);
+    $openNewNotes.on("click", openNewNoteModal)
+    $SaveNote.on("click", getNoteInput)
 
     function handleScrape() {
 
@@ -33,7 +39,7 @@ $(document).ready(function() {
             let articleId = data._id // this is the article id
             console.log(articleId)
 
-            noteBody.setAttribute("article-id", articleId)
+            noteBody.attr("article-id", articleId)
             noteBody.write(dbNote)
 
         })
@@ -41,29 +47,31 @@ $(document).ready(function() {
     
 
 
-    function newNoteModal() {
+    function openNewNoteModal() {
         let id = $(this).attr("article-id")
-        $("#saveNewNote").on("click", getNoteInput(id))
-        
+        $("#saveNewNote").attr("data-id", id)
     }
 
-    function getNoteInput(id) {
-        let input = $("#exampleFormControlTextarea1").value().trim()
+
+
+    function getNoteInput() {
+        let id = $(this).attr("data-id")
+        let input = $("#exampleFormControlTextarea1").val();
         return $.ajax({
             type: "POST",
             url: "/notes/" + id,
             id: id,
-            input: input
+            data: {
+                body: input
+            }
+            
         }).then(function (data) {
             console.log(data)
-            alert("your note has been added")
+            console.log("adding note")
         })
     }
 
 
-    $scrapeIt.on("click", handleScrape);
-    $openSavedNotes.on("click", openNoteModal);
-    $openNewNotes.on("click", newNoteModal)
-
+  
 
 }) // end document.ready
