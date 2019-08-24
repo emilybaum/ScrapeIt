@@ -3,11 +3,13 @@ $(document).ready(function() {
     const $scrapeIt = $("#scrapeIt");
 
     function handleScrape() {
+
         return $.ajax({
             type: "GET",
             url: "/scrapeit",
         }).then(function(data) {
             console.log(data)
+            alert("complete, now show articles")
         })
     }
 

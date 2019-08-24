@@ -7,8 +7,8 @@
     </p>
     <p>
       <a href="/articles" class="btn btn-primary my-2">Show articles</a>
-      <a href="/scrapeit" id="scrapeIt" class="btn btn-info my-2">Scrape new articles</a>
-      <a href="/notes" class="btn btn-secondary my-2">See notes</a>
+      <a  id="scrapeIt" class="btn btn-info my-2">Run scrape</a>
+      {{!-- <a href="/notes" class="btn btn-secondary my-2">See notes</a> --}}
     </p>
   </div>
 </section>
@@ -30,7 +30,7 @@
                 <a href={{this.link}} target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">View source</button></a>
                 {{!-- <a href="notes/{{this._id}}"><button type="button" class="ml-1 btn btn-sm btn-outline-secondary">Add a note</button></a> --}}
                 <button type="button" class="ml-1 btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#{{this._id}}">
-                  Notes
+                  See notes
                 </button>
               </div>
               <small class="text-muted">from BuzzfeedNews</small>

@@ -13,7 +13,6 @@ module.exports = function(app) {
 
     // A GET route for scraping the website
     app.get("/scrapeit", function (req, res) {
-        console.log("in /scrapeit api call")
         axios.get("https://www.buzzfeednews.com/").then(function (response) {
             // Then, we load that into cheerio and save it to $ for a shorthand selector
             const $ = cheerio.load(response.data);
@@ -44,12 +43,15 @@ module.exports = function(app) {
                 db.Article.create(result)
                     .then(function (dbArticle) {
                         // console.log(dbArticle);
+                       
                     })
                     .catch(function (err) {
                         console.log(err);
                     });
             });
 
+           
+            res.send("Scrape complete")
             console.log("Scrape Complete")
         });
     });

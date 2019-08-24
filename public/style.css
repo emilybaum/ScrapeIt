@@ -6,6 +6,10 @@ h3 {
     font-size: 12px;
 }
 
+.eb-hidden {
+    display: none;
+}
+
 .jumbotron {
   padding-top: 3rem;
   padding-bottom: 3rem;
