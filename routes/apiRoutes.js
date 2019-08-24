@@ -80,8 +80,9 @@ module.exports = function(app) {
             // ..and populate all of the notes associated with it
             .populate("note")
             .then(function (dbArticle) {
-                // If we were able to successfully find an Article with the given id, send it back to the client
-                res.render("index", dbArticle);
+                // res.send(dbArticle);
+                res.render("index", note)
+                    .then(res.send(dbArticle));
             })
             .catch(function (err) {
                 // If an error occurred, send it to the client
@@ -90,7 +91,7 @@ module.exports = function(app) {
     });
 
     // Route for saving/updating an Article's associated Note
-    app.post("/articles/:id", function (req, res) {
+    app.post("/notes/:id", function (req, res) {
         // Create a new note and pass the req.body to the entry
         db.Note.create(req.body)
             .then(function (dbNote) {
@@ -101,7 +102,7 @@ module.exports = function(app) {
             })
             .then(function (dbArticle) {
                 // If we were able to successfully update an Article, send it back to the client
-                res.json(dbArticle);
+                res.send(dbArticle);
             })
             .catch(function (err) {
                 // If an error occurred, send it to the client
@@ -110,20 +111,20 @@ module.exports = function(app) {
     });
 
 
-    app.get("/notes", function (req, res) {
-        db.Article.find({})
-            .populate("note")
-            .then(function (dbArticle) {
+    // app.get("/notes", function (req, res) {
+    //     db.Article.find({})
+    //         .populate("note")
+    //         .then(function (dbArticle) {
 
-                let allNotes = {
-                    notes: dbArticle
-                }
+    //             let allNotes = {
+    //                 notes: dbArticle
+    //             }
 
-                res.render("notes", allNotes);
-            })
-            .catch(function (err) {
-                res.json(err);
-            });
-    });
+    //             res.render("notes", allNotes);
+    //         })
+    //         .catch(function (err) {
+    //             res.json(err);
+    //         });
+    // });
 
 }

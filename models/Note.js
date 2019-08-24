@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 let Schema = mongoose.Schema;
 
 let NoteSchema = new Schema({
-    submitter: String,
+    // title: String,
     body: String
 });
 
