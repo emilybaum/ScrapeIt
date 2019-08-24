@@ -1,4 +1,39 @@
-<button id="scrapeIt" href="scrape">Scrape</button>
+<div class="album py-5 bg-light">
+  <div class="container">
+
+    <div class="row">
+
+    {{#each articles}}
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img class="card-img-top" src={{this.img}} alt="Card image cap">
+          <div class="card-body">
+            <h3>{{this.title}}</h3>
+            <p class="card-text">{{this.descriotion}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <a href={{this.link}} target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">View source</button></a>
+                {{!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> --}}
+              </div>
+              <small class="text-muted">from BuzzfeedNews</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}   
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+{{!-- <button id="scrapeIt" href="scrape">Scrape</button>
 
 <h1>Articles!</h1>
 
@@ -19,13 +54,13 @@
 
     {{/each}}
   </div>
-</div>
+</div> --}}
 
 
 
 
 
-<div>
+{{!-- <div>
   <ul>
   {{#each notes}}
     <li>
@@ -38,4 +73,4 @@
     </li>
   {{/each}}
   </ul>
-</div>
+</div>  --}}
