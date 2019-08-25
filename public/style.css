@@ -10,6 +10,20 @@ h3 {
     display: none;
 }
 
+.noteList {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    width: 100px;
+}
+
+.noteGroup {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .jumbotron {
   padding-top: 3rem;
   padding-bottom: 3rem;

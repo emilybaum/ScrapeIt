@@ -28,16 +28,30 @@
             <div class="d-flex flex-column justify-content-between align-items-center">
               <div class="btn-group">
                 {{!-- <a href="notes/{{this._id}}"><button type="button" class="ml-1 btn btn-sm btn-outline-secondary">Add a note</button></a> --}}
-                <button type="button" class="ml-1 btn btn-sm btn-outline-secondary openNotes" article-id="{{this._id}}" data-toggle="modal" data-target="#savedNotesModal">
+                {{!-- <button type="button" class="ml-1 btn btn-sm btn-outline-secondary openNotes" article-id="{{this._id}}" data-toggle="modal" data-target="#savedNotesModal">
                   See notes
-                </button>
+                </button> --}}
+                <a href={{this.link}} target="_blank"><button type="button" class="ml-1 btn btn-sm btn-outline-secondary">
+                  Source
+                </button></a>
                 <button type="button" class="ml-1 btn btn-sm btn-outline-secondary newNotes" article-id="{{this._id}}"
                   data-toggle="modal" data-target="#newNotesModal">
                   Add note
                 </button>
 
               </div>
-              <small class="text-muted">see <a href={{this.link}}>source </a></small>
+              <div>
+                <h3>Notes</h3>
+                <ul class="noteList">
+                  {{#each this.note}}
+                  <li class="noteGroup">
+                    <p>{{this.body}}</p>
+                    <button note-id={{this._id}}>X</button>
+                  </li>
+                  {{/each}}
+                </ul>
+              </div>
+              <small class="text-muted">from BuzzFeedNews</small>
             </div>
           </div>
         </div>
@@ -58,12 +72,12 @@
           </div>
           <div class="modal-body">
             <ul>
-              {{#each note}}
+              {{!-- {{#each articles}}
               <li id="noteBody">
-                  <p>{{this.note}}</p>
+                  <p>{{@index}}: {{.}}!</p>
                   <button>X</button>
               </li>
-              {{/each}}
+              {{/each}} --}}
             </ul>
           </div>
           <div class="modal-footer">
@@ -90,7 +104,7 @@
           <div class="modal-body">
             {{!-- form for text area --}}
             <div class="form-group">
-              <label for="userTextInput">Example textarea</label>
+              <label for="userTextInput"></label>
               <textarea class="form-control" id="userTextInput" rows="3"></textarea>
             </div>
 

@@ -55,10 +55,11 @@ module.exports = function(app) {
     // Route for getting all Articles from the db
     app.get("/articles", function (req, res) {
         db.Article.find({}).sort({ '_id': -1 }).limit(24)
+            .populate("note")
             .then(function (dbArticle) {
 
                 let allArticles = {
-                    articles: dbArticle
+                    articles: dbArticle,
                 }
 
                 res.render("index", allArticles);
@@ -90,7 +91,7 @@ module.exports = function(app) {
         console.log(req.body)
         db.Note.create(req.body)
             .then(function (dbNote) {
-                return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
+                return db.Article.findOneAndUpdate({ _id: req.params.id }, { $push:{ note: dbNote._id }}, { new: true });
             })
 
             .then(function (dbArticle) {
