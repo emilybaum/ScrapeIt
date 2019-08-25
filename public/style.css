@@ -32,21 +32,9 @@ h3 {
     font-family: 'Yeseva One', cursive;
 }
 
-
-
-/* from Megan */
-
-.list-group-item.mouseover {
-  background: #fafafa;
-  cursor: pointer;
+.btn {
+    border-radius: 0%;
 }
-
-.list-group-item .remove-item.mouseover {
-  background: #aaf;
-  cursor: pointer;
-}
-
-/* -- */
 
 
 .jumbotron {

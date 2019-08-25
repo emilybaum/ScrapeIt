@@ -31,7 +31,7 @@
             <div class="d-flex flex-column justify-content-between align-items-center">
               <div class="btn-group">
                 <a href={{this.link}} target="_blank">
-                  <button type="button" class="ml-1 btn btn-sm btn-outline-secondary">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">
                   Source
                   </button>
                 </a>
@@ -42,18 +42,19 @@
               </div>
             </div>
               {{!-- <div> --}}
+                {{#if this.note}}
                 <h3 class="text-center mt-2">Notes</h3>
                 <div class="noteList">
                   {{#each this.note}}
                   <div class="noteGroup">
-                    <p>{{this.body}}</p>
-                    <span data-id={{this._id}} class="pl-1 remove-item oi oi-trash"><i class="fa fa-trash"></i></span>
-
+                    <p class="ml-2">{{this.body}}</p>
+                    <span data-id={{this._id}} class="pl-1 mr-2 remove-item oi oi-trash"><i class="fa fa-trash"></i></span>
                   </div>
                   {{/each}}
                 </div>
+                {{/if}}
               {{!-- </div> --}}
-              <small class="text-muted">from BuzzFeedNews</small>
+              <p class="text-center mb-0 mt-1"><small class="text-muted  ">from BuzzFeedNews</small></p>
             
           </div>
         </div>
