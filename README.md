@@ -27,5 +27,9 @@ A web app that lets users view, add, and remove notes on the latest articles scr
 `HTML`
 `CSS`
 
+### Demo
+!["gif demo"](demo.gif)
+
+
 
 
