@@ -9,7 +9,7 @@ A web app that lets users view, add, and remove notes on the latest articles scr
 1. Add notes to any article and see other notes that have already been left
 1. And you can always view the original source of the article
 
-.....
+---
 
 ## What I learned
 * When scraping another site, it's possible that the website has changed it's code so you need to pick some resillient classes to simplify the process. I went with the **.find()** method to look for matching classes and then extracted that content
