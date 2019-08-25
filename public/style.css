@@ -24,6 +24,23 @@ h3 {
     justify-content: space-between;
 }
 
+
+
+/* from Megan */
+
+.list-group-item.mouseover {
+  background: #fafafa;
+  cursor: pointer;
+}
+
+.list-group-item .remove-item.mouseover {
+  background: #aaf;
+  cursor: pointer;
+}
+
+/* -- */
+
+
 .jumbotron {
   padding-top: 3rem;
   padding-bottom: 3rem;

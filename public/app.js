@@ -72,7 +72,7 @@ $(document).ready(function() {
             console.log("note added")
             $("#userTextInput").val("");
             $("#newNotesModal").modal('hide')
-            // location.reload()
+            location.reload()
         })
     }
 
@@ -91,6 +91,7 @@ $(document).ready(function() {
             });
 
     });
+
 
 
   

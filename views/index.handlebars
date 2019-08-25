@@ -44,7 +44,9 @@
                   {{#each this.note}}
                   <div class="noteGroup">
                     <p>{{this.body}}</p>
-                    <button class="remove-item" data-id={{this._id}}>X</button>
+                    <span data-id={{this._id}} class="pl-1 remove-item oi oi-trash"><i class="fa fa-trash"></i></span>
+                    {{!-- <i class="fa fa-trash"></i> --}}
+
                   </div>
                   {{/each}}
                 </div>
