@@ -27,32 +27,30 @@
             <p class="card-text text-muted eb-description">{{this.description}}</p>
             <div class="d-flex flex-column justify-content-between align-items-center">
               <div class="btn-group">
-                {{!-- <a href="notes/{{this._id}}"><button type="button" class="ml-1 btn btn-sm btn-outline-secondary">Add a note</button></a> --}}
-                {{!-- <button type="button" class="ml-1 btn btn-sm btn-outline-secondary openNotes" article-id="{{this._id}}" data-toggle="modal" data-target="#savedNotesModal">
-                  See notes
-                </button> --}}
-                <a href={{this.link}} target="_blank"><button type="button" class="ml-1 btn btn-sm btn-outline-secondary">
+                <a href={{this.link}} target="_blank">
+                  <button type="button" class="ml-1 btn btn-sm btn-outline-secondary">
                   Source
-                </button></a>
+                  </button>
+                </a>
                 <button type="button" class="ml-1 btn btn-sm btn-outline-secondary newNotes" article-id="{{this._id}}"
                   data-toggle="modal" data-target="#newNotesModal">
                   Add note
                 </button>
-
               </div>
-              <div>
-                <h3>Notes</h3>
-                <ul class="noteList">
-                  {{#each this.note}}
-                  <li class="noteGroup">
-                    <p>{{this.body}}</p>
-                    <button note-id={{this._id}}>X</button>
-                  </li>
-                  {{/each}}
-                </ul>
-              </div>
-              <small class="text-muted">from BuzzFeedNews</small>
             </div>
+              {{!-- <div> --}}
+                <h3 class="text-center mt-2">Notes</h3>
+                <div class="noteList">
+                  {{#each this.note}}
+                  <div class="noteGroup">
+                    <p>{{this.body}}</p>
+                    <button class="remove-item" data-id={{this._id}}>X</button>
+                  </div>
+                  {{/each}}
+                </div>
+              {{!-- </div> --}}
+              <small class="text-muted">from BuzzFeedNews</small>
+            
           </div>
         </div>
       </div>

@@ -104,6 +104,19 @@ module.exports = function(app) {
             });
     });
 
+    // Route for deleting the note
+    app.put("/articles/note/:id", function (req, res) {
+        // Grab every document in the Articles collection
+        db.Note.remove({ _id: req.params.id })
+            .then(function (dbArticle) {
+                res.json(dbArticle);
+            })
+            .catch(function (err) {
+                // If an error occurred, send it to the client
+                res.json(err);
+            });
+    });
+
 
 
 }
