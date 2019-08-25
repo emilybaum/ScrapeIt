@@ -4,7 +4,9 @@ $(document).ready(function() {
     const $openSavedNotes = $(".openNotes");
     const $openNewNotes = $(".newNotes");
     const $SaveNote = $("#saveNewNote");
+    const $checkScrape = $("#checkScrape");
 
+    // $checkScrape.on("click", confirmScrape)
     $scrapeIt.on("click", handleScrape);
     $openSavedNotes.on("click", openNoteModal);
     $openNewNotes.on("click", openNewNoteModal)
@@ -17,7 +19,11 @@ $(document).ready(function() {
             url: "/scrapeit",
         }).then(function(data) {
             console.log(data)
-            alert('Great! The scrape is complete, now click on "Show articles"')
+            // alert('Great! The scrape is complete, now click on "Show articles"')
+            
+            $("#newNotesModal").modal('hide')
+            location.reload()
+        
         })
     }
     
