@@ -4,22 +4,15 @@ const cheerio = require("cheerio");
 
 
 module.exports = function(app) {
-    // app.get("/scrape", function (req, res) {
-    //     db.Events.findAll({}).then(function (dbEvent) {
-    //         res.json(dbEvent);
-    //     });
-    // });
-
-
+   
     // A GET route for scraping the website
     app.get("/scrapeit", function (req, res) {
         axios.get("https://www.buzzfeednews.com/").then(function (response) {
-            // Then, we load that into cheerio and save it to $ for a shorthand selector
+
             const $ = cheerio.load(response.data);
 
-            // Now, we grab every h2 within an article tag, and do the following:
             $(".newsblock-story-card").each(function (i, element) {
-                // Save an empty result object
+
                 let result = {};
                 
                 result.title = $(this)
@@ -65,7 +58,6 @@ module.exports = function(app) {
                 res.render("index", allArticles);
             })
             .catch(function (err) {
-                // If an error occurred, send it to the client
                 res.json(err);
             });
     });
@@ -106,13 +98,12 @@ module.exports = function(app) {
 
     // Route for deleting the note
     app.put("/articles/note/:id", function (req, res) {
-        // Grab every document in the Articles collection
+
         db.Note.remove({ _id: req.params.id })
             .then(function (dbArticle) {
                 res.json(dbArticle);
             })
             .catch(function (err) {
-                // If an error occurred, send it to the client
                 res.json(err);
             });
     });
