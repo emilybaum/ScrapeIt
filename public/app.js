@@ -6,7 +6,6 @@ $(document).ready(function() {
     const $SaveNote = $("#saveNewNote");
     const $checkScrape = $("#checkScrape");
 
-    // $checkScrape.on("click", confirmScrape)
     $scrapeIt.on("click", handleScrape);
     $openSavedNotes.on("click", openNoteModal);
     $openNewNotes.on("click", openNewNoteModal)
@@ -19,7 +18,6 @@ $(document).ready(function() {
             url: "/scrapeit",
         }).then(function(data) {
             console.log(data)
-            // alert('Great! The scrape is complete, now click on "Show articles"')
             
             $("#newNotesModal").modal('hide')
             location.reload()
@@ -38,12 +36,9 @@ $(document).ready(function() {
             id: id
         }).then(function (data) {
             console.log(data)
-            // let noteTitle = $("#noteTitle");
             let noteBody = $("#noteBody");
             let dbNote = data.note // this is an array
-            // data.note._id -- this needs to pass to the individual element
             let articleId = data._id // this is the article id
-            // console.log(articleId)
 
             noteBody.attr("article-id", articleId)
             noteBody.write(dbNote)
